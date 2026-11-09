@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProM replica, Dotted Chart</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+</head>
+
+<body>
+
+  <div class="visualizationArea">
+  <!-- LEFT PANEL: OPTIONS -->
+
+    <div class="controls">
+
+      <div class="panelTitle">Options</div>
+
+      <div class="controls">
+        <label for="sortSelect">Sort cases by:</label>
+        <select id="sortSelect">
+        <option value ="caseID">Component name (Case ID)</option>
+        <option value="eventCount">Number of events</option>
+        <option value="duration">Case duration</option>
+        <option value="startTime" selected>Actual start time</option>
+        <option value="endTime">Actual end time</option>
+      </select>
+
+      <label for="sortDirection">Order:</label>
+      <select id="sortDirection">
+       <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
+      </select>
+
+      <label for="timeMode">Time view:</label>
+      <select id="timeMode">
+       <option value="absolute">Absolute time</option>
+        <option value="relative">Relative time</option>
+      </select>
+
+      <!-- MOUSE MODE-->
+       <div class="mouseModeSection">
+        <div class="controlSectionTitle">Mouse mode</div>
+        <select id="mouseMode">
+          <option value="drag">Drag</option>
+          <option value="select">Select</option>
+        </select>
+       </div>
+
+       <!-- ZOOM CONTROLS -->
+        <div class="zoomControls">
+          <div class="controlSectionTitle">Zoom</div>
+
+          <!-- HORIZONTAL ZOOM -->
+           <label for="horizontalZoom">Horizontal zoom</label>
+
+           <input
+              type="range"
+              id="horizontalZoom"
+              min="1"
+              max="20"
+              step="0.5"
+              value="1"
+            >
+
+          <!-- VERTICAL ZOOM-->
+           <label for="verticalZoom">Vertical zoom</label>
+
+           <input
+              type="range"
+              id="verticalZoom"
+              min="1"
+              max="20"
+              step="0.5"
+              value="1"
+            >
+
+          <!-- ZOOM BUTTONS -->
+            <button id="resetZoom">Zoom out</button>
+            <button id="updateButton">Update</button>
+
+
+        </div>
+
+
+    </div>
+
+    </div>
+
+
+    <div class="chartArea">
+      <svg width="960" height="500" aria-label="Dotted chart of event log"></svg>
+    </div>
+
+    <!-- RIGHT PANEL: LEGEND AND CASE OVERVIEW -->
+    <div class="rightColumn">
+
+      <!-- ACTIVITIES PANEL -->
+       <div class="activitiesPanel">
+        <div class="panelTitle">Activities</div>
+        <div id="activityLegend"></div>
+       </div>
+
+      <!-- CASE OVERVIEW PANEL -->
+       <div class="caseOverviewPanel">
+        <div class="panelTitle">Case overview</div>
+        <div id="caseOverviewContent"></div>
+       </div>
+    </div>
+    
+
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
