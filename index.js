@@ -22,12 +22,8 @@ const {
 const svg = select('.chartArea svg');
 
 
-// De beschikbare breedte van de grafiek bepalen
-// op basis van de middelste kolom
-
-const chartArea = document.querySelector('.chartArea');
-
- const width = chartArea.clientWidth;
+// vaste breedte van de grafiek, gelijk aan improved D3.js
+const width = 960;
 
 
 // De beschikbare hoogte van het scherm gebruiken
